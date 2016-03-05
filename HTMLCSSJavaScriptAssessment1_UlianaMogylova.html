@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="HTMLCSSJavaScriptCouse1.css">
+<title> Coursera first assesment HTML/CSS/JavaScript course1 </title>
+<script type="text/javascript">
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("Image").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("imageTag").src = oFREvent.target.result;
+        };
+    };
+
+</script>
+</head>
+
+<h1> Please Enter Your Details For Our Dating Website! </h1>
+
+<form action="destination" method="post" enctype="multipart/formdata">
+  <fieldset>
+      <legend>Your Face</legend>
+      <label for="Image">Your image:</label>
+      <input type="file" name="fileToUpload" id="Image" onchange="PreviewImage()"/> <br>
+
+      <!-- TODO: JavaScript to show the image on the site  -->
+      <label for="ImagePreview">Image preview: </label>
+      <img id="imageTag" src="#" />
+  </fieldset> <br>
+
+  <fieldset>
+      <legend>Your General Details</legend>
+
+      <label for="name">Name: </label>
+      <input type ="text" name = "name" id = "name"/> <br>
+
+      <label for="gender">Gender:</label>
+      <input type="radio" name="gender" value="Male" required> Male</>
+      <input type="radio" name="gender" value="Female" required> Female</>
+      <br>
+
+      <label for="age">Age:</label>
+      <input type="number" name="age" id="age" min="18"> <br>
+
+      <label for="BirthDay">Date of birth: </label>
+      <input type="date" name="BirthDay" id = "BirthDay"/> <br>
+
+      <label for="colour">Favorite color: </label>
+      <input type="color" name="colour" id = "colour"/> <br>
+
+      <label for="country">Which country:</label>
+      <select name="country" id="country">
+        <option disabled selected> -- select an option -- </option>
+        <option value="ca">Canada</option>
+        <option value="usa">USA</option>
+        <option value="uk">Ukraine</option>
+      </select>
+
+  </fieldset> <br>
+
+  <fieldset>
+      <legend>Your Indicators</legend>
+
+      <div class="indicatorSection">
+        <label for="height">Height:</label>
+        <div class="indicatorText indicatorLeft">Short</div>
+        <div class="indicatorSlide">
+          <input type="range" step="5" value="50" id="height" name="height"/>
+        </div>
+        <div class="indicatorText indicatorRight">Tall</div>
+      </div>
+
+      <div class="indicatorSection">
+        <label for="salary">Salary:</label>
+        <div class="indicatorText indicatorLeft">Poor</div>
+        <div class="indicatorSlide">
+          <input type="range" step="5" value="50" id="salary" name="salary"/>
+        </div>
+        <div class="indicatorText indicatorRight">Rich</div>
+      </div>
+
+  </fieldset> <br>
+
+  <fieldset>
+      <legend>Your Contact Information</legend>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" /> <br>
+
+      <label for="mobile">Mobile:</label>
+      <input type="text" name="mobile" id= "mobile"/> <br>
+
+      <label for="address">Address:</label>
+      <textarea rows="4" cols="50" name="address" id="address"/> </textarea> <br>
+
+      <label for="methodOfcontact">Method to contact you: </label>
+      <input type="checkbox" name="methodOfcontact" id="methodOfcontact" value="email"/>Email
+      <input type="checkbox" name="methodOfcontact" id="methodOfcontact" value="whatsapp"/>Whatsapp
+      <input type="checkbox" name="methodOfcontact" id="methodOfcontact" value="In-app chat"/>In-app chat
+
+  </fieldset> <br>
+
+  <input type="submit" value="Submit!">
+</form>
+</html>
