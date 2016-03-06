@@ -46,7 +46,8 @@ label:hover, input:hover, select:hover{
   float: left;
 }
 
-#imageTag{
-  width: 100px;
-  height: 100px;
+img{
+  border: 0;
+  max-width: 300px;
+  max-height: 300px;
 }

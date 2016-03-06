@@ -9,7 +9,8 @@
         oFReader.readAsDataURL(document.getElementById("Image").files[0]);
 
         oFReader.onload = function (oFREvent) {
-            document.getElementById("imageTag").src = oFREvent.target.result;
+            var imageElement = document.getElementById("imageTag");
+            imageElement.src = oFREvent.target.result;
         };
     };
 
@@ -26,7 +27,7 @@
 
       <!-- TODO: JavaScript to show the image on the site  -->
       <label for="ImagePreview">Image preview: </label>
-      <img id="imageTag" src="#" />
+      <img id="imageTag"/>
   </fieldset> <br>
 
   <fieldset>
