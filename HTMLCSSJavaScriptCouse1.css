@@ -22,7 +22,7 @@ label:hover, input:hover, select:hover{
 }
 
 .indicatorText{
-  background-color: purple;
+  background-color: red;
   width: 100px;
   height: 20px;
   text-align: center;
@@ -33,10 +33,6 @@ label:hover, input:hover, select:hover{
 
 .indicatorRight{
   background-color: purple;
-}
-
-.indicatorLeft{
-  background-color: red;
 }
 
 .indicatorSlide{
