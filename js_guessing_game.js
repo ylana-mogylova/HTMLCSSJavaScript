@@ -16,10 +16,9 @@ function do_game() {
 
     // sort array in the alphabetical order
     colourArray.sort();
-    //console.log(target);
 
 
-    while (!finished) {
+   while (!finished) {
         guess_input_text = prompt("I am thinking of one of these colours: "+
                               show_colour(0)+"\n\n"+
                               "What color am I thinking of?");
@@ -39,25 +38,7 @@ function show_colour(index){
 }
 
 function check_guess(){
-  /*  if (colourArray.indexOf(guess_input_text)==-1) {
-        alert("Sorry, I do not recognize your colour \n \n"+
-              "Please try again.");
-        return false;
-    }
 
-    if (guess_input_text.localeCompare(target) == -1) {
-        alert("Sorry, your guess is not correct. \n\n" +
-              "Hint: your colour is alphabetically lower than mine! \n \n"+
-              "Try again.");
-        return false;
-    }
-
-    if (guess_input_text.localeCompare(target) == 1) {
-      alert("Sorry, your guess is not correct. \n\n" +
-            "Hint: your colour is alphabetically higher than mine! \n \n"+
-            "Try again.");
-        return false;
-    }*/
     if(target == null || guess_input_text == null){
       return true;
     }
