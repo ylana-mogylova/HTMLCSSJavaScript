@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<header>
+<title>
+    Smile game
+</title>
+<style>
+  img {position:absolute}
+</style>
+<script>
+  var numberOfFaces=5;
+
+  function generateFaces(){
+    var i=0;
+    var random_number_top_integer;
+    var random_number_left_integer;
+    theLeftSide = document.getElementById("leftSide");
+    theRightSide = document.getElementById("rightSide");
+    // generate faces on the left side
+    for (i=0;i<numberOfFaces;i++){
+      var image = document.createElement("img");
+      image.src="smile.png";
+      // generate random number from 100 to 600 px for top coordinate
+      random_number_top_integer=Math.floor(Math.random()*(600-100+1)+100);
+      image.style.top=random_number_top_integer + "px";
+      // generate random number from 0 to 650 px for left coordinate
+      random_number_left_integer=Math.floor(Math.random()*650+1);
+      image.style.left=random_number_left_integer + "px";
+      // add new child element image
+      theLeftSide.appendChild(image);
+    };
+    // clone the left div
+    var leftSideImages = theLeftSide.cloneNode(true);
+    // remove the last image
+    leftSideImages.removeChild(leftSideImages.lastChild);
+    // add cloned left div to the right div
+    theRightSide.appendChild(leftSideImages);
+
+    // event handler function to the extra face
+    theLeftSide.lastChild.onclick=
+    function nextLevel(event){
+        //stops the event from bubbling up the event chain, i.e. clicking other smiles
+        event.stopPropagation();
+        // delete all smiles from left side
+        while (theLeftSide.firstChild)
+        theLeftSide.removeChild(theLeftSide.firstChild);
+        // delete all smiles from right side
+        while (theRightSide.firstChild)
+        theRightSide.removeChild(theRightSide.firstChild);
+        // increase number of face to 5 for the next level
+        numberOfFaces += 5;
+        // generate new number of smiles
+        generateFaces();
+    };
+
+    // event clicking on incorrect smile
+    var theBody = document.getElementsByTagName("body")[0];
+    theBody.onclick = function gameOver() {
+    alert("Game Over!");
+    //from now onwards nothing will happen when the user clicks anywhere in the web page
+    theBody.onclick = null;
+    // from now onwards nothing will happen when the user clicks on the extra smile
+    theLeftSide.lastChild.onclick = null;
+    };
+  }
+</script>
+</header>
+<body onload="generateFaces()" style="height:100%; width:100%; position: absolute">
+  <h1> Matching Game </h1>
+  <p> Click on the extra smiling face on the left </p>
+  <div id="leftSide" style="position: absolute; float:left; width:50%;height:100%;"></div>
+  <div id="rightSide", style="float:right; width:50%; height:100%; border-left:1px solid black;"></div>
+</body>
+</html>
